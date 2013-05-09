@@ -2,11 +2,16 @@
 
 nodejs cli tool for benchmark socket.io server
 
+
+## Installation
+
+	npm install -g socket.io-bench
+
 ## Usage
 
 example
 
-`node index.js -a 2500 -c 200 http://localhost:3000`
+`socket.io-bench -a 2500 -c 200 http://localhost:3000`
 
 
 command help
