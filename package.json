@@ -6,7 +6,13 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nchaulet/socket.io-bench.git"
+  },
+  "bin":          {
+    "socket.io-bench":     "./bin/socket.io-bench"
+  },
   "author": "",
   "license": "BSD",
   "dependencies": {
