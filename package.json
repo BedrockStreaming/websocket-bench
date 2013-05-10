@@ -1,6 +1,6 @@
 {
   "name": "socket.io-bench",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "tool for benchmar socket.io",
   "main": "index.js",
   "scripts": {
