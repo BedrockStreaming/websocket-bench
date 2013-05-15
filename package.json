@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git://github.com/nchaulet/socket.io-bench.git"
   },
-  "bin":          {
-    "socket.io-bench":     "./bin/socket.io-bench"
+  "bin": {
+    "socket.io-bench": "./bin/socket.io-bench"
   },
   "author": "",
   "license": "BSD",
@@ -19,6 +19,7 @@
     "socket.io-client": "~0.9.11",
     "commander": "~1.1.1",
     "cli-table": "~0.2.0",
-    "colors": "~0.6.0-1"
+    "colors": "~0.6.0-1",
+    "faye": "~0.8.9"
   }
 }

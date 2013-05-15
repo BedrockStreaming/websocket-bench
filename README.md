@@ -1,6 +1,6 @@
 # Socket.io bench
 
-nodejs cli tool for benchmark socket.io server
+nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 
 
 ## Installation
@@ -16,7 +16,7 @@ example
 
 command help
 
-	Usage: index.js [options] <server>
+	  Usage: socket.io-bench [options] <server>
 
 	  Options:
 
@@ -27,6 +27,8 @@ command help
 	    -w, --worker <n>        number of worker
 	    -g, --generator <file>  js file for generate message or special event
 	    -m, --message <n>       number of message for a client. Default to 0
+	    -t, --type <type>       type of websocket server to bench(socket.io, faye). Default to io
+
 
 ## Benchmark message
 
@@ -36,12 +38,25 @@ generator structure :
 
 	(function() {
 
+
+		/**
+		* Before connection (just for faye)
+		* @param {client} client connection
+		*/
+		exports.beforeConnect = function(client) {
+			// Your logic
+			// By example
+			// client.setHeader('Authorization', 'OAuth abcd-1234');
+			// client.disable('websocket');
+		};
+
+
 		/**
 		* on socket io connect
-		* @param {socket} socket io connection
+		* @param {client} client connection
 		* @param {done}   callback function(err) {}
 		*/
-		exports.onConnect = function(socket, done) {
+		exports.onConnect = function(client, done) {
 			// Your logic
 
 			done();
@@ -49,16 +64,18 @@ generator structure :
 
 		/**
 		* send a message
-		* @param {socket} socket io connection
+		* @param {client} client connection
 		* @param {done}   callback function(err) {}
 		*/
-		exports.sendMessage = function(socket, done) {
+		exports.sendMessage = function(client, done) {
 			// Your logic
-			//socket.emit('test', { hello: 'world' });
+			//client.emit('test', { hello: 'world' });
+			//client.publish('/test', { hello: 'world' });
 			done();
 		};
 
 	})();
+
 
 
 

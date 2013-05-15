@@ -12,6 +12,7 @@
 	  .option('-w, --worker <n>', 'number of worker', parseInt)
 	  .option('-g, --generator <file>', 'js file for generate message or special event')
 	  .option('-m, --message <n>', 'number of message for a client. Default to 0', parseInt)
+	  .option('-t, --type <type>', 'type of websocket server to bench(socket.io, faye). Default to io')
 	  .parse(process.argv);
 
 	if (program.args.length < 1) {
@@ -41,11 +42,16 @@
 		program.message = 0;
 	}
 
+	if (!program.type) {
+		program.type = 'socket.io';
+	}
+
 	console.log('Launch bench with ' + program.amount + ' total connection, ' + program.concurency + ' concurent connection');
 	console.log(program.message + ' message(s) send by client');
 	console.log(program.worker + ' worker(s)');
+	console.log('WS server : ' + program.type);
 
-	var bench  = new Benchmark(server, program.generator);
+	var bench  = new Benchmark(server, program.generator, program.type);
 
 	// On ctrl+c
 	process.on('SIGINT', function() {
