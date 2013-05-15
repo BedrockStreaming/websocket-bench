@@ -1,22 +1,22 @@
-# Socket.io bench
+# websocket bench
 
 nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 
 
 ## Installation
 
-	npm install -g socket.io-bench
+	npm install -g websocket-bench
 
 ## Usage
 
 example
 
-`socket.io-bench -a 2500 -c 200 http://localhost:3000`
+`websocket-bench -a 2500 -c 200 http://localhost:3000`
 
 
 command help
 
-	  Usage: socket.io-bench [options] <server>
+	  Usage: websocket-bench [options] <server>
 
 	  Options:
 
