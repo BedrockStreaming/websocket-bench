@@ -20,7 +20,10 @@
     "commander": "~1.1.1",
     "cli-table": "~0.2.0",
     "colors": "~0.6.0-1",
-    "faye": "~0.8.9",
-    "chai": "~1.6.0"
+    "faye": "~0.8.9"
+  },
+  "devDependencies" : {
+    "chai": "~1.6.0",
+    "mocha": "*"
   }
 }
