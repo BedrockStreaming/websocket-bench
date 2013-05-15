@@ -11,7 +11,7 @@
     "url": "git://github.com/nchaulet/websocket-bench.git"
   },
   "bin": {
-    "socket.io-bench": "./bin/websocket-bench"
+    "websocket-bench": "./bin/websocket-bench"
   },
   "author": "",
   "license": "BSD",
