@@ -1,17 +1,17 @@
 {
-  "name": "socket.io-bench",
-  "version": "0.0.2",
-  "description": "tool for benchmar socket.io",
+  "name": "websocket-bench",
+  "version": "0.0.1",
+  "description": "tool for benchmark websocket (socket.io, faye)",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nchaulet/socket.io-bench.git"
+    "url": "git://github.com/nchaulet/websocket-bench.git"
   },
   "bin": {
-    "socket.io-bench": "./bin/socket.io-bench"
+    "socket.io-bench": "./bin/websocket-bench"
   },
   "author": "",
   "license": "BSD",
