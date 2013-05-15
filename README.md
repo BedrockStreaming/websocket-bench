@@ -9,6 +9,8 @@ nodejs cli tool for benchmark web socket server, currently support (socket.io, f
 
 ## Usage
 
+set ulimit for your system ulimit -n 60000
+
 example
 
 `websocket-bench -a 2500 -c 200 http://localhost:3000`
