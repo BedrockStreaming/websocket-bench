@@ -2,10 +2,12 @@
 	var mocha = require('mocha'),
 		chai = require('chai'),
 		assert = chai.assert,
+		should = chai.should(),
 		faye = require('faye');
 
 	var FayeWorker = require('../lib/workers/fayeworker.js'),
-		BaseWorker = require('../lib/workers/baseworker.js');
+		BaseWorker = require('../lib/workers/baseworker.js'),
+		Monitor = require('../lib/monitor.js');
 
 	describe('FayeWorker', function() {
 
@@ -14,18 +16,18 @@
 			it('Should be an instance of base worker', function() {
 				var worker = new FayeWorker('server', {});
 
-				assert(worker instanceof BaseWorker);
+				worker.should.be.instanceof(BaseWorker);
 			});
 
 		});
 
 		describe('#createClient' , function() {
 
-			it('Should be an instance of base worker', function() {
+			it('create a faye client', function() {
 				var worker = new FayeWorker('server', {});
-				var client = worker.createClient();
+				var client = worker.createClient(function() {});
 
-				assert(client instanceof faye.Client);
+				client.should.be.instanceof(faye.Client);
 			});
 
 		});

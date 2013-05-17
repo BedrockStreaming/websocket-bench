@@ -95,6 +95,7 @@
                 steps.addStep(10, {});
 
                 var step = steps.getLastStep();
+
                 should.exist(step);
                 step.should.have.property('number').equal(20);
             });
@@ -102,7 +103,7 @@
 
         describe('#getSteps' , function() {
 
-            it('must return last step', function() {
+            it('wtih two steps must array with added steps', function() {
                 var steps = new Steps();
 
                 steps.addStep(10, {});
@@ -111,6 +112,16 @@
                 var getSteps = steps.getSteps();
 
                 steps.should.have.property('_steps').equal(getSteps);
+
+            });
+
+            it('with no steps must return an empty array', function() {
+                var steps = new Steps();
+
+                var getSteps = steps.getSteps();
+
+                steps._steps.should.be.an('Array');
+                steps._steps.should.have.length(0);
 
             });
         });
