@@ -1,8 +1,9 @@
 (function() {
 
-	var Benchmark = require('./lib/benchmark.js');
-
-	var program = require('commander');
+	var Benchmark = require('./lib/benchmark.js'),
+		DefaultReporter = require('./lib/defaultreporter.js')
+		fs = require('fs'),
+		program = require('commander');
 
 	program
 	  .version('0.0.2')
@@ -12,7 +13,9 @@
 	  .option('-w, --worker <n>', 'number of worker', parseInt)
 	  .option('-g, --generator <file>', 'js file for generate message or special event')
 	  .option('-m, --message <n>', 'number of message for a client. Default to 0', parseInt)
+	  .option('-o, --output <output>', 'Output file')
 	  .option('-t, --type <type>', 'type of websocket server to bench(socket.io, faye). Default to io')
+	  .option('-k, --keep-alive', 'Keep alive connection')
 	  .parse(process.argv);
 
 	if (program.args.length < 1) {
@@ -38,6 +41,10 @@
 		program.generator = __dirname + '/lib/generator.js';
 	}
 
+	if (program.generator.indexOf('/') != 0) {
+		program.generator = __dirname +'/' + program.generator;
+	}
+
 	if (!program.message) {
 		program.message = 0;
 	}
@@ -51,14 +58,34 @@
 	console.log(program.worker + ' worker(s)');
 	console.log('WS server : ' + program.type);
 
-	var bench  = new Benchmark(server, program.generator, program.type);
+	var options = {
+		generatorFile : program.generator,
+		type: program.type,
+		keepAlive: program.keepAlive
+	};
+
+	var outputStream = null;
+
+	if (program.output) {
+
+		if (program.generator.indexOf('/') != 0) {
+			program.output = __dirname +'/' + program.generator;
+		}
+
+		outputStream = fs.createWriteStream(program.output);
+	}
+
+	var reporter = new DefaultReporter(outputStream);
+
+	var bench  = new Benchmark(server, reporter, options);
 
 	// On ctrl+c
 	process.on('SIGINT', function() {
+		bench.close();
 		bench.terminate();
 	 	process.exit();
 	});
 
-	bench.launch(program.amount, program.concurency, program.worker, program.message);
+	bench.launch(program.amount, program.concurency, program.worker, program.message, program.keepAlive);
 
 })();
