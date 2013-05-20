@@ -2,7 +2,7 @@
 
 nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 
-[![Build Status](https://travis-ci.org/nchaulet/websocket-bench.png?branch=master)](https://travis-ci.org/nchaulet/websocket-bench)
+[![Build Status](https://travis-ci.org/M6Web/websocket-bench.png?branch=master)](https://travis-ci.org/M6Web/websocket-bench)
 
 
 ## Installation
