@@ -81,9 +81,16 @@
 
 	// On ctrl+c
 	process.on('SIGINT', function() {
-		bench.close();
-		bench.terminate();
-	 	process.exit();
+		console.log("\nGracefully stoping worker from SIGINT (Ctrl+C)");
+
+		setTimeout(function() {
+
+			if (bench.monitor.isRunning()) {
+				bench.terminate();
+			}
+
+		}, 2000);
+
 	});
 
 	bench.launch(program.amount, program.concurency, program.worker, program.message, program.keepAlive);
