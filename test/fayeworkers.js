@@ -23,11 +23,13 @@
 
 		describe('#createClient' , function() {
 
-			it('create a faye client', function() {
+			it('create a faye client', function(done) {
 				var worker = new FayeWorker('server', {});
-				var client = worker.createClient(function() {});
+				worker.createClient(function(err, client) {
+					client.should.be.instanceof(faye.Client);
+					done();
+				});
 
-				client.should.be.instanceof(faye.Client);
 			});
 
 		});

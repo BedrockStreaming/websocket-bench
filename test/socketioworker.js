@@ -23,11 +23,14 @@
 
         describe('#createClient' , function() {
 
-            it('create a socket.io client', function() {
+            it('create a socket.io client', function(done) {
                 var worker = new SocketIOWorker('server', {});
-                var client = worker.createClient(function() {});
+                worker.createClient(function(err, client) {
+                    client.should.be.instanceof(io.SocketNamespace);
+                    done();
+                });
 
-                client.should.be.instanceof(io.SocketNamespace);
+
 
             });
 
