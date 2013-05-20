@@ -61,7 +61,8 @@
 	var options = {
 		generatorFile : program.generator,
 		type: program.type,
-		keepAlive: program.keepAlive
+		keepAlive: program.keepAlive,
+		logging: true
 	};
 
 	var outputStream = null;

@@ -20,11 +20,13 @@
     "commander": "~1.1.1",
     "cli-table": "~0.2.0",
     "colors": "~0.6.0-1",
-    "faye": "~0.8.9"
+    "faye": "~0.8.9",
+    "winston": "~0.7.1",
+    "socket.io": "~0.9.14"
   },
-  "devDependencies" : {
+  "devDependencies": {
     "chai": "~1.6.0",
     "mocha": "*",
-    "sinon":"*"
+    "sinon": "*"
   }
 }

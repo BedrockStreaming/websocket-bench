@@ -5,9 +5,9 @@
 		should = chai.should(),
 		faye = require('faye');
 
-	var FayeWorker = require('../lib/workers/fayeworker.js'),
-		BaseWorker = require('../lib/workers/baseworker.js'),
-		Monitor = require('../lib/monitor.js');
+	var FayeWorker = require('../../lib/workers/fayeworker.js'),
+		BaseWorker = require('../../lib/workers/baseworker.js'),
+		Monitor = require('../../lib/monitor.js');
 
 	describe('FayeWorker', function() {
 

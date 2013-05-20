@@ -4,7 +4,7 @@
         should = chai.should(),
         assert = chai.assert;
 
-    var Steps = require('../lib/steps.js');
+    var Steps = require('../../lib/steps.js');
 
     describe('Steps', function() {
 

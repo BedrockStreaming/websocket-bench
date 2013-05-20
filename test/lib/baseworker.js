@@ -5,7 +5,7 @@
         sinon  = require('sinon'),
         assert = chai.assert;
 
-    var BaseWorker = require('../lib/workers/baseworker.js');
+    var BaseWorker = require('../../lib/workers/baseworker.js');
 
     var worker = null;
     var monitor = null;

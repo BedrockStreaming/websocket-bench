@@ -5,9 +5,9 @@
         should = chai.should(),
         io = require('socket.io-client');
 
-    var SocketIOWorker = require('../lib/workers/socketioworker.js'),
-        BaseWorker = require('../lib/workers/baseworker.js'),
-        Monitor = require('../lib/monitor.js');
+    var SocketIOWorker = require('../../lib/workers/socketioworker.js'),
+        BaseWorker = require('../../lib/workers/baseworker.js'),
+        Monitor = require('../../lib/monitor.js');
 
     describe('SocketIOWorker', function() {
 

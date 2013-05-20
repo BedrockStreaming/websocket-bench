@@ -1,0 +1,3 @@
+test/lib/
+test/functional/
+--reporter spec

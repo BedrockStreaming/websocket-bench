@@ -4,7 +4,7 @@
         should = chai.should(),
         assert = chai.assert;
 
-    var Monitor = require('../lib/monitor.js');
+    var Monitor = require('../../lib/monitor.js');
 
     describe('Monitor', function() {
 

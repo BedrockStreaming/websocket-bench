@@ -5,7 +5,7 @@
         sinon  = require('sinon'),
         assert = chai.assert;
 
-    var Benchmark = require('../lib/benchmark.js');
+    var Benchmark = require('../../lib/benchmark.js');
 
     var benchmark = null;
 
