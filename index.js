@@ -42,7 +42,7 @@
 	}
 
 	if (program.generator.indexOf('/') != 0) {
-		program.generator = __dirname +'/' + program.generator;
+		program.generator = process.cwd()  +'/' + program.generator;
 	}
 
 	if (!program.message) {
