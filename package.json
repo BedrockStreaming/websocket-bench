@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nchaulet/websocket-bench.git"
+    "url": "git://github.com/M6Web/websocket-bench.git"
   },
   "bin": {
     "websocket-bench": "./bin/websocket-bench"

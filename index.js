@@ -6,7 +6,7 @@
 		program = require('commander');
 
 	program
-	  .version('0.0.2')
+	  .version('0.0.3')
 	  .usage('[options] <server>')
 	  .option('-a, --amount <n>', 'Total number of persistent connection, Default to 100', parseInt)
 	  .option('-c, --concurency <n>', 'Concurent connection per second, Default to 20', parseInt)
