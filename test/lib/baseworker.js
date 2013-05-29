@@ -44,7 +44,7 @@
                 worker.launch(3, 2);
 
                 assert(stubCreateClient.calledThrice);
-                assert(stubCreateClient.withArgs(2));
+                assert(stubCreateClient.withArgs(1));
 
             });
 
