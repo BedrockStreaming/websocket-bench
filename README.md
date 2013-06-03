@@ -1,6 +1,6 @@
 # websocket bench
 
-nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
+Nodejs cli tool for benchmark web socket server, currently support (socket.io, faye)
 
 [![Build Status](https://travis-ci.org/M6Web/websocket-bench.png?branch=master)](https://travis-ci.org/M6Web/websocket-bench)
 
@@ -13,7 +13,7 @@ nodejs cli tool for benchmark web socket server, currently support (socket.io, f
 
 set ulimit for your system ulimit -n 60000
 
-example
+Simple example
 
 `websocket-bench -a 2500 -c 200 http://localhost:3000`
 
@@ -36,7 +36,7 @@ command help
 
 ## Benchmark message
 
-For benchmark message you should provide your own `generator`
+For benchmark message or more advanced connection you should provide your own `generator`
 
 generator structure :
 
@@ -62,6 +62,9 @@ generator structure :
 		*/
 		exports.onConnect = function(client, done) {
 			// Your logic
+			
+			//client.subscribe('/channel', function(message) { });
+						
 
 			done();
 		};
