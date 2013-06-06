@@ -24,7 +24,7 @@
             it('createStep must add a step to _steps', function() {
                 var steps = new Steps();
 
-                steps.addStep(10, {});
+                steps.addStep(10, {}, {});
 
                 steps._steps.should.be.an('Array');
                 steps._steps.should.have.length(1);
@@ -43,7 +43,7 @@
             it('must return step if step found', function() {
                 var steps = new Steps();
 
-                steps.addStep(10, {});
+                steps.addStep(10, {}, {});
 
                 should.exist(steps.findStep(10));
             });
@@ -61,8 +61,8 @@
             it('must return null if step is first steps in _steps', function() {
                 var steps = new Steps();
 
-                steps.addStep(10, {});
-                steps.addStep(10, {});
+                steps.addStep(10, {}, {});
+                steps.addStep(10, {}, {});
 
                 should.not.exist(steps.previousStep({number: 10}));
             });
@@ -70,8 +70,8 @@
             it('must return step if step is second steps in _steps', function() {
                 var steps = new Steps();
 
-                steps.addStep(10, {});
-                steps.addStep(10, {});
+                steps.addStep(10, {}, {});
+                steps.addStep(10, {}, {});
 
                 var step = steps.previousStep({number: 20});
                 should.exist(step);
@@ -91,8 +91,8 @@
             it('must return last step', function() {
                 var steps = new Steps();
 
-                steps.addStep(10, {});
-                steps.addStep(10, {});
+                steps.addStep(10, {}, {});
+                steps.addStep(10, {}, {});
 
                 var step = steps.getLastStep();
 
@@ -106,8 +106,8 @@
             it('wtih two steps must array with added steps', function() {
                 var steps = new Steps();
 
-                steps.addStep(10, {});
-                steps.addStep(10, {});
+                steps.addStep(10, {}, {});
+                steps.addStep(10, {}, {});
 
                 var getSteps = steps.getSteps();
 

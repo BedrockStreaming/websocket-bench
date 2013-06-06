@@ -28,9 +28,12 @@
 
         describe('Test with a io server working' , function() {
 
-            before(function() {
+            before(function(done) {
                 server = io.listen(port);
                 server.set('log level', 0);
+                setTimeout(function() {
+                    done();
+                }, 1500);
             });
             after(function() {
                 server.server.close();
@@ -43,6 +46,7 @@
                     connectNumber++;
                     if (connectNumber == 10) {
 
+                        benchmark.close();
                         done();
                     };
                 });
@@ -50,19 +54,25 @@
                 benchmark.launch(10, 10, 1, 0);
             });
 
-            it('should connect call reporter with 5 connection done', function(done) {
+            it('should connect call reporter with 2 connection done', function(done) {
+
+                this.timeout(3000);
+
 
                 var stubReport = sinon.stub(testReporter, 'report', function(steps, monitor) {
-                    assert.equal(monitor.results.connection, 5);
+                    assert.equal(monitor.results.connection, 2);
                     assert.equal(monitor.results.errors, 0);
                     testReporter.report.restore();
 
+                    benchmark.close();
                     done();
                 });
 
-                benchmark.launch(5, 5, 2, 0);
+                benchmark.launch(2, 1, 1, 0);
             });
+
         });
+
         describe('Test without server' , function() {
 
             it('should connect call reporter with 10 errors', function(done) {
@@ -72,6 +82,7 @@
                     assert.equal(monitor.results.errors, 10);
                     testReporter.report.restore();
 
+                    benchmark.close();
                     done();
                 });
 
