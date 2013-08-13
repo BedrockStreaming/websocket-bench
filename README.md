@@ -84,5 +84,7 @@ generator structure :
 	})();
 
 
+## See also 
 
+French article about websocket-bench : [Benchmarking websockets avec Node.Js](http://tech.m6web.fr/benchmarking-websockets-avec-nodejs)
 
