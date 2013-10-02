@@ -56,15 +56,18 @@ generator structure :
 
 
 		/**
-		* on socket io connect
+		* on client connect
 		* @param {client} client connection
 		* @param {done}   callback function(err) {}
 		*/
 		exports.onConnect = function(client, done) {
 			// Your logic
 			
+                        // Faye client
 			//client.subscribe('/channel', function(message) { });
-						
+			
+                        //Socket.io client
+                        //client.emit('test', { hello: 'world' });
 
 			done();
 		};
