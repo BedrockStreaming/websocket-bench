@@ -22,6 +22,7 @@
     "colors": "~0.6",
     "faye": "~0.8.9",
     "winston": "~0.7.1",
+    "primus": "~1.5.2",
     "socket.io": "~0.9.14"
   },
   "devDependencies": {
