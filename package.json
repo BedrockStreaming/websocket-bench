@@ -20,7 +20,7 @@
     "commander": "~1.1.1",
     "colors": "~0.6",
     "cli-table": "~0.3.0",
-    "faye": "~1.0.1",
+    "faye": "~0.8.9",
     "winston": "~0.7.1",
     "socket.io": "~0.9.14",
     "chai": "~1.6.1"
