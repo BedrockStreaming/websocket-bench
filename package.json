@@ -19,7 +19,7 @@
     "socket.io-client": "~0.9.11",
     "commander": "~1.1.1",
     "cli-table": "~0.2.0",
-    "colors": "~0.6.0-1",
+    "colors": "~0.6",
     "faye": "~0.8.9",
     "winston": "~0.7.1",
     "socket.io": "~0.9.14"
