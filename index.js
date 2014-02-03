@@ -14,7 +14,7 @@
 	  .option('-g, --generator <file>', 'js file for generate message or special event')
 	  .option('-m, --message <n>', 'number of message for a client. Default to 0', parseInt)
 	  .option('-o, --output <output>', 'Output file')
-	  .option('-t, --type <type>', 'type of websocket server to bench(socket.io, faye). Default to io')
+	  .option('-t, --type <type>', 'type of websocket server to bench(socket.io, faye, primus). Default to io')
 	  .option('-k, --keep-alive', 'Keep alive connection')
 	  .parse(process.argv);
 

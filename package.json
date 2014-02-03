@@ -23,7 +23,8 @@
     "faye": "~0.8.9",
     "winston": "~0.7.1",
     "socket.io": "~0.9.14",
-    "chai": "~1.6.1"
+    "chai": "~1.6.1",
+    "primus": "~1.5.2"
   },
   "devDependencies": {
     "chai": "~1.6.0",
