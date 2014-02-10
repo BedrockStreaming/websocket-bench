@@ -15,6 +15,7 @@
 	  .option('-m, --message <n>', 'number of message for a client. Default to 0', parseInt)
 	  .option('-o, --output <output>', 'Output file')
 	  .option('-t, --type <type>', 'type of websocket server to bench(socket.io, faye, primus). Default to io')
+	  .option('-p, --trans-port <type>', 'type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets')
 	  .option('-k, --keep-alive', 'Keep alive connection')
 	  .parse(process.argv);
 
@@ -52,6 +53,10 @@
 	if (!program.type) {
 		program.type = 'socket.io';
 	}
+	
+	if(program.type=='primus' && !program.transPort){
+		program.transPort = 'websockets';
+	}
 
 	console.log('Launch bench with ' + program.amount + ' total connection, ' + program.concurency + ' concurent connection');
 	console.log(program.message + ' message(s) send by client');
@@ -61,6 +66,7 @@
 	var options = {
 		generatorFile : program.generator,
 		type: program.type,
+		transPort: program.transPort,
 		keepAlive: program.keepAlive,
 		logging: true
 	};
