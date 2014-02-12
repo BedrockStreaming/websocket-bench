@@ -41,7 +41,7 @@ command help
       -m, --message <n>       number of message for a client. Default to 0
       -o, --output <output>    Output file
       -t, --type <type>        type of websocket server to bench(socket.io, faye, primus). Default to socket.io
-      -p, --trans-port <type>  type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets
+      -p, --transport <type>  type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets (Just for Primus)
     -k, --keep-alive         Keep alive connection
 
 
