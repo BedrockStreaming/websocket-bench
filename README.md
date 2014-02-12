@@ -39,7 +39,11 @@ command help
       -w, --worker <n>        number of worker
       -g, --generator <file>  js file for generate message or special event
       -m, --message <n>       number of message for a client. Default to 0
-      -t, --type <type>       type of websocket server to bench(socket.io, faye, primus). Default to io
+      -o, --output <output>    Output file
+      -t, --type <type>        type of websocket server to bench(socket.io, faye, primus). Default to socket.io
+      -p, --trans-port <type>  type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets
+    -k, --keep-alive         Keep alive connection
+
 
 ## Benchmark message
 
