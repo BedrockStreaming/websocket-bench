@@ -1,10 +1,8 @@
 /*global describe, it, require*/
 
-(function () {
   var mocha = require('mocha'),
     chai = require('chai'),
-    should = chai.should(),
-    assert = chai.assert;
+    should = chai.should();
 
   var logger = require('../../lib/logger.js');
 
@@ -52,5 +50,3 @@
       });
     });
   });
-
-})();
