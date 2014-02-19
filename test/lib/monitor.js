@@ -1,17 +1,14 @@
-(function() {
-    var mocha = require('mocha'),
-        chai = require('chai'),
-        should = chai.should(),
-        assert = chai.assert;
+/*global require, describe, it, beforeEach, afterEach*/
 
-    var Monitor = require('../../lib/monitor.js');
+var mocha = require('mocha'),
+  chai = require('chai'),
+  should = chai.should(),
+  assert = chai.assert;
 
-    describe('Monitor', function() {
+var Monitor = require('../../lib/monitor.js');
 
-        describe('#constructor', function() {
+describe('Monitor', function () {
+  describe('#constructor', function () {
 
-        });
-
-    });
-
-})();
+  });
+});
