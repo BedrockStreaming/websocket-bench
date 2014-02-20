@@ -74,7 +74,7 @@ var options = {
   type          : program.type,
   transport     : program.transport,
   keepAlive     : program.keepAlive,
-  logging       : true
+  verbose       : program.verbose
 };
 
 if (program.verbose) {
