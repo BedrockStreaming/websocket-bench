@@ -34,7 +34,6 @@
     "gulp-jshint": "~1.4.2",
     "jshint-stylish": "~0.1.5",
     "gulp-mocha": "~0.4.1",
-    "gulp-bump": "~0.1.5",
-    "gulp-debug": "~0.2.0"
+    "gulp-bump": "~0.1.5"
   }
 }
