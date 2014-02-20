@@ -48,7 +48,7 @@ if (!program.generator) {
   program.generator = __dirname + '/lib/generator.js';
 }
 
-if (program.generator.indexOf('/') != 0) {
+if (program.generator.indexOf('/') !== 0) {
   program.generator = process.cwd() + '/' + program.generator;
 }
 
@@ -60,7 +60,7 @@ if (!program.type) {
   program.type = 'socket.io';
 }
 
-if (program.type == 'primus' && !program.transport) {
+if (program.type === 'primus' && !program.transport) {
   program.transPort = 'websockets';
 }
 
@@ -84,7 +84,7 @@ if (program.verbose) {
 var outputStream = null;
 
 if (program.output) {
-  if (program.generator.indexOf('/') != 0) {
+  if (program.generator.indexOf('/') !== 0) {
     program.output = __dirname + '/' + program.generator;
   }
   outputStream = fs.createWriteStream(program.output);

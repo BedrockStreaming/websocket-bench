@@ -1,16 +1,19 @@
-# websocket bench
+# websocket bench [![Build Status](https://travis-ci.org/M6Web/websocket-bench.png?branch=master)](https://travis-ci.org/M6Web/websocket-bench)
+
 
 Nodejs cli tool for benchmarking websocket servers. Currently supports:
 * [Socket.IO](https://github.com/LearnBoost/socket.io)
 * [Faye](https://github.com/faye/faye)
 * [Primus](https://github.com/primus/primus)
 
-[![Build Status](https://travis-ci.org/M6Web/websocket-bench.png?branch=master)](https://travis-ci.org/M6Web/websocket-bench)
-
-
 ## Installation
 
-    npm install -g websocket-bench
+   `npm install -g websocket-bench`
+
+## Running Tests/Linting
+
+  First Install required dev-dependencies `npm install`
+  Run Gulp Build Tool `gulp mocha`
 
 ## Usage
 
@@ -52,24 +55,25 @@ For benchmark message or more advanced connection you should provide your own `g
 
 generator structure :
 
-    (function() {
+```javascript
 
+    module.exports = {
        /**
         * Before connection (optional, just for faye)
         * @param {client} client connection
         */
-       exports.beforeConnect = function(client) {
+       beforeConnect : function(client) {
          // Example:
          // client.setHeader('Authorization', 'OAuth abcd-1234');
          // client.disable('websocket');
-       };
+       },
 
        /**
         * On client connection (required)
         * @param {client} client connection
         * @param {done} callback function(err) {}
         */
-       exports.onConnect = function(client, done) {
+       exports.onConnect : function(client, done) {
          // Faye client
          // client.subscribe('/channel', function(message) { });
 
@@ -80,21 +84,22 @@ generator structure :
          // client.write('Sailing the seas of cheese');
 
          done();
-       };
+       },
 
        /**
         * Send a message (required)
         * @param {client} client connection
         * @param {done} callback function(err) {}
         */
-       exports.sendMessage = function(client, done) {
+       exports.sendMessage : function(client, done) {
          // Example:
          // client.emit('test', { hello: 'world' });
          // client.publish('/test', { hello: 'world' });
          done();
-       };
+       }
+    };
 
-    })();
+```
 
 ## See also
 
