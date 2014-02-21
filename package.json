@@ -17,6 +17,7 @@
   "license": "BSD",
   "dependencies": {
     "socket.io-client": "~0.9.11",
+    "engine.io-client": "~0.9.0",
     "commander": "~1.1.1",
     "colors": "~0.6",
     "cli-table": "~0.3.0",
