@@ -1,4 +1,4 @@
-/*global require, describe, it, beforeEach, afterEach*/
+/*global require, describe, it, xit, beforeEach, afterEach*/
 
 var mocha = require('mocha'),
   chai = require('chai'),
@@ -32,7 +32,11 @@ describe('BaseWorker', function () {
   });
 
   describe('#launch', function () {
-    it('Should create <number> of clients with <numberMsg>', function () {
+    //Commented out test since it doesn't work as expected
+    //The callbacks aren't executed when stubbing methods, therefore
+    //The test hangs. When running with mocha you will see that it isn't functioning
+    //As Expected, IE Change values and it still passes.
+    xit('Should create <number> of clients with <numberMsg>', function () {
       var stubCreateClient = sinon.stub(worker, 'createClient');
 
       worker.launch(3, 2);
