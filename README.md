@@ -74,7 +74,7 @@ generator structure :
         * @param {client} client connection
         * @param {done} callback function(err) {}
         */
-       exports.onConnect : function(client, done) {
+       onConnect : function(client, done) {
          // Faye client
          // client.subscribe('/channel', function(message) { });
 
@@ -92,7 +92,7 @@ generator structure :
         * @param {client} client connection
         * @param {done} callback function(err) {}
         */
-       exports.sendMessage : function(client, done) {
+       sendMessage : function(client, done) {
          // Example:
          // client.emit('test', { hello: 'world' });
          // client.publish('/test', { hello: 'world' });
