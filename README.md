@@ -6,6 +6,7 @@ Nodejs cli tool for benchmarking websocket servers. Currently supports:
 * [Engine.IO](https://github.com/LearnBoost/engine.io)
 * [Faye](https://github.com/faye/faye)
 * [Primus](https://github.com/primus/primus)
+* [SockJS](https://github.com/sockjs/sockjs-client)
 
 ## Installation
 
