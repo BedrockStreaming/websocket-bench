@@ -6,6 +6,7 @@ Nodejs cli tool for benchmarking websocket servers. Currently supports:
 * [Engine.IO](https://github.com/LearnBoost/engine.io)
 * [Faye](https://github.com/faye/faye)
 * [Primus](https://github.com/primus/primus)
+* [WAMP](https://github.com/tavendo/AutobahnJS)
 
 ## Installation
 
@@ -44,7 +45,7 @@ command help
       -g, --generator <file>   Js file for generate message or special event
       -m, --message <n>        Number of message for a client. Default to 0
       -o, --output <output>    Output file
-      -t, --type <type>        Type of websocket server to bench(socket.io, engine.io, faye, primus). Default to socket.io
+      -t, --type <type>        Type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to socket.io
       -p, --transport <type>   Type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets (Just for Primus)
       -k, --keep-alive         Keep alive connection
       -v, --verbose            Verbose Logging
@@ -84,6 +85,9 @@ generator structure :
          // Primus client
          // client.write('Sailing the seas of cheese');
 
+         // WAMP session
+         // client.subscribe('com.myapp.hello').then(function(args) { });
+
          done();
        },
 
@@ -96,7 +100,15 @@ generator structure :
          // Example:
          // client.emit('test', { hello: 'world' });
          // client.publish('/test', { hello: 'world' });
+         // client.call('com.myapp.add2', [2, 3]).then(function (res) { });
          done();
+       },
+
+       /**
+        * WAMP connection options
+        */
+       options : {
+         // realm: 'chat'
        }
     };
 
