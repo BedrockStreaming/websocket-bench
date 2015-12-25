@@ -7,6 +7,7 @@ Nodejs cli tool for benchmarking websocket servers. Currently supports:
 * [Faye](https://github.com/faye/faye)
 * [Primus](https://github.com/primus/primus)
 * [WAMP](https://github.com/tavendo/AutobahnJS)
+* [Websocket](https://github.com/theturtle32/WebSocket-Node)
 
 ## Installation
 
@@ -45,7 +46,7 @@ command help
       -g, --generator <file>   Js file for generate message or special event
       -m, --message <n>        Number of message for a client. Default to 0
       -o, --output <output>    Output file
-      -t, --type <type>        Type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to socket.io
+      -t, --type <type>        Type of websocket server to bench(socket.io, engine.io, faye, primus, wamp, websocket). Default to socket.io
       -p, --transport <type>   Type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets (Just for Primus)
       -k, --keep-alive         Keep alive connection
       -v, --verbose            Verbose Logging
