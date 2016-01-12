@@ -13,6 +13,7 @@ program
   .option('-c, --concurency <n>', 'Concurent connection per second, Default to 20', parseInt)
   .option('-w, --worker <n>', 'number of worker', parseInt)
   .option('-g, --generator <file>', 'js file for generate message or special event')
+  .option('-r, --reporter <file>', 'js file for reporting result')
   .option('-m, --message <n>', 'number of message for a client. Default to 0', parseInt)
   .option('-o, --output <output>', 'Output file')
   .option('-t, --type <type>', 'type of websocket server to bench(socket.io, engine.io, faye, primus, wamp, websocket). Default to io')
@@ -56,6 +57,12 @@ if (!program.message) {
   program.message = 0;
 }
 
+if (!program.reporter) {
+    program.reporter = __dirname + '/lib/defaultreporter.js';
+}
+if (program.generator.indexOf('/') !== 0){
+    program.generator = process.cwd() + '/' + program.generator;
+}
 if (!program.type) {
   program.type = 'socket.io';
 }
@@ -71,6 +78,7 @@ logger.info('WS server : ' + program.type);
 
 var options = {
   generatorFile : program.generator,
+  reporterFile    : program.repoter,
   type          : program.type,
   transport     : program.transport,
   keepAlive     : program.keepAlive,
