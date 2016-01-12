@@ -1,7 +1,6 @@
 /*global require, process*/
 
 var Benchmark = require('./lib/benchmark.js'),
-  DefaultReporter = require('./lib/defaultreporter.js'),
   fs = require('fs'),
   program = require('commander'),
   logger = require('./lib/logger');
@@ -60,8 +59,8 @@ if (!program.message) {
 if (!program.reporter) {
     program.reporter = __dirname + '/lib/defaultreporter.js';
 }
-if (program.generator.indexOf('/') !== 0){
-    program.generator = process.cwd() + '/' + program.generator;
+if (program.reporter.indexOf('/') !== 0){
+    program.reporter = process.cwd() + '/' + program.reporter;
 }
 if (!program.type) {
   program.type = 'socket.io';
@@ -78,7 +77,7 @@ logger.info('WS server : ' + program.type);
 
 var options = {
   generatorFile : program.generator,
-  reporterFile    : program.repoter,
+  reporterFile  : program.reporter,
   type          : program.type,
   transport     : program.transport,
   keepAlive     : program.keepAlive,
@@ -89,6 +88,8 @@ if (program.verbose) {
   logger.debug("Benchmark Options " + JSON.stringify(options));
 }
 
+var Reporter = require(program.reporter);
+
 var outputStream = null;
 
 if (program.output) {
@@ -98,7 +99,7 @@ if (program.output) {
   outputStream = fs.createWriteStream(program.output);
 }
 
-var reporter = new DefaultReporter(outputStream);
+var reporter = new Reporter(outputStream);
 var bench = new Benchmark(server, reporter, options);
 
 // On ctrl+c
