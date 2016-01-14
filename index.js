@@ -1,7 +1,6 @@
 /*global require, process*/
 
 var Benchmark = require('./lib/benchmark.js'),
-  DefaultReporter = require('./lib/defaultreporter.js'),
   fs = require('fs'),
   program = require('commander'),
   logger = require('./lib/logger');
@@ -13,9 +12,10 @@ program
   .option('-c, --concurency <n>', 'Concurent connection per second, Default to 20', parseInt)
   .option('-w, --worker <n>', 'number of worker', parseInt)
   .option('-g, --generator <file>', 'js file for generate message or special event')
+  .option('-r, --reporter <file>', 'js file for reporting result')
   .option('-m, --message <n>', 'number of message for a client. Default to 0', parseInt)
   .option('-o, --output <output>', 'Output file')
-  .option('-t, --type <type>', 'type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to io')
+  .option('-t, --type <type>', 'type of websocket server to bench(socket.io, engine.io, faye, primus, wamp, websocket). Default to io')
   .option('-p, --transport <type>', 'type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets')
   .option('-k, --keep-alive', 'Keep alive connection')
   .option('-v, --verbose', 'Verbose Logging')
@@ -56,6 +56,12 @@ if (!program.message) {
   program.message = 0;
 }
 
+if (!program.reporter) {
+    program.reporter = __dirname + '/lib/defaultreporter.js';
+}
+if (program.reporter.indexOf('/') !== 0){
+    program.reporter = process.cwd() + '/' + program.reporter;
+}
 if (!program.type) {
   program.type = 'socket.io';
 }
@@ -71,6 +77,7 @@ logger.info('WS server : ' + program.type);
 
 var options = {
   generatorFile : program.generator,
+  reporterFile  : program.reporter,
   type          : program.type,
   transport     : program.transport,
   keepAlive     : program.keepAlive,
@@ -81,6 +88,8 @@ if (program.verbose) {
   logger.debug("Benchmark Options " + JSON.stringify(options));
 }
 
+var Reporter = require(program.reporter);
+
 var outputStream = null;
 
 if (program.output) {
@@ -90,7 +99,7 @@ if (program.output) {
   outputStream = fs.createWriteStream(program.output);
 }
 
-var reporter = new DefaultReporter(outputStream);
+var reporter = new Reporter(outputStream);
 var bench = new Benchmark(server, reporter, options);
 
 // On ctrl+c
