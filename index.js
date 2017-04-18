@@ -3,6 +3,7 @@
 var Benchmark = require('./lib/benchmark.js'),
   DefaultReporter = require('./lib/defaultreporter.js'),
   fs = require('fs'),
+  os = require("os"),
   program = require('commander'),
   logger = require('./lib/logger');
 
@@ -48,7 +49,7 @@ if (!program.generator) {
   program.generator = __dirname + '/lib/generator.js';
 }
 
-if (program.generator.indexOf('/') !== 0) {
+if (program.generator.indexOf('/') !== 0 && os.platform() !== 'win32') {
   program.generator = process.cwd() + '/' + program.generator;
 }
 
