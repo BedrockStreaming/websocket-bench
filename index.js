@@ -3,8 +3,10 @@
 var Benchmark = require('./lib/benchmark.js'),
   DefaultReporter = require('./lib/defaultreporter.js'),
   fs = require('fs'),
+  path = require('path'),
   program = require('commander'),
   logger = require('./lib/logger');
+
 
 program
   .version('0.0.3')
@@ -48,9 +50,16 @@ if (!program.generator) {
   program.generator = __dirname + '/lib/generator.js';
 }
 
-if (program.generator.indexOf('/') !== 0) {
-  program.generator = process.cwd() + '/' + program.generator;
+if(process.platform !== 'win32'){
+  if (program.generator.indexOf('/') !== 0) {
+    program.generator = process.cwd() + '/' + program.generator;
+  }
+} else {
+  if(!/^[\w]+\:/.test(program.generator)){
+    program.generator = process.cwd() + path.sep + program.generator;
+  }
 }
+
 
 if (!program.message) {
   program.message = 0;
