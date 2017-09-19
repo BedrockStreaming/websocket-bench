@@ -49,7 +49,7 @@ describe('Test Faye Benchmarking', function () {
     });
 
     it('should connect call reporter with 5 connection done', function (done) {
-      var stubReport = sinon.stub(testReporter, 'report', function (steps, monitor) {
+      var stubReport = sinon.stub(testReporter, 'report').callsFake(function (steps, monitor) {
         assert.equal(monitor.results.connection, 5);
         assert.equal(monitor.results.errors, 0);
         testReporter.report.restore();
@@ -62,7 +62,7 @@ describe('Test Faye Benchmarking', function () {
   });
   describe('Test without faye server', function () {
     it('should connect call reporter with 10 errors', function (done) {
-      var stubReport = sinon.stub(testReporter, 'report', function (steps, monitor) {
+      var stubReport = sinon.stub(testReporter, 'report').callsFake(function (steps, monitor) {
         assert.equal(monitor.results.connection, 0);
         assert.equal(monitor.results.errors, 10);
         testReporter.report.restore();

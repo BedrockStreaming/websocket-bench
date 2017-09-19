@@ -47,6 +47,7 @@ command help
       -o, --output <output>    Output file
       -t, --type <type>        Type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to socket.io
       -p, --transport <type>   Type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets (Just for Primus)
+      -n, --pathname <type>    Pathname for primus configuration, default is '/primus'
       -k, --keep-alive         Keep alive connection
       -v, --verbose            Verbose Logging
 

@@ -17,6 +17,7 @@ program
   .option('-o, --output <output>', 'Output file')
   .option('-t, --type <type>', 'type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to io')
   .option('-p, --transport <type>', 'type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets')
+  .option('-n, --pathname <type>', 'pathname for primus configuration, default is "/primus" ')
   .option('-k, --keep-alive', 'Keep alive connection')
   .option('-v, --verbose', 'Verbose Logging')
   .parse(process.argv);
@@ -74,7 +75,8 @@ var options = {
   type          : program.type,
   transport     : program.transport,
   keepAlive     : program.keepAlive,
-  verbose       : program.verbose
+  verbose       : program.verbose,
+  pathname      : program.pathname
 };
 
 if (program.verbose) {
