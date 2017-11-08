@@ -18,6 +18,7 @@ program
   .option('-t, --type <type>', 'type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to io')
   .option('-p, --transport <type>', 'type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets')
   .option('-k, --keep-alive', 'Keep alive connection')
+  .option('-u, --timeout <n>', 'Set connection timeout. Default is 20000ms for socket.io', parseInt)
   .option('-v, --verbose', 'Verbose Logging')
   .parse(process.argv);
 
@@ -26,7 +27,6 @@ if (program.args.length < 1) {
 }
 
 var server = program.args[0];
-
 // Set default value
 if (!program.worker) {
   program.worker = 1;
@@ -61,7 +61,11 @@ if (!program.type) {
 }
 
 if (program.type === 'primus' && !program.transport) {
-  program.transPort = 'websockets';
+  program.transport = 'websockets';
+}
+
+if (!program.timeout) {
+  program.timeout = 20000;
 }
 
 logger.info('Launch bench with ' + program.amount + ' total connection, ' + program.concurency + ' concurent connection');
@@ -74,7 +78,8 @@ var options = {
   type          : program.type,
   transport     : program.transport,
   keepAlive     : program.keepAlive,
-  verbose       : program.verbose
+  verbose       : program.verbose,
+  timeout       : program.timeout
 };
 
 if (program.verbose) {
