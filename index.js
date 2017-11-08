@@ -61,7 +61,7 @@ if (!program.type) {
 }
 
 if (program.type === 'primus' && !program.transport) {
-  program.transPort = 'websockets';
+  program.transport = 'websockets';
 }
 
 logger.info('Launch bench with ' + program.amount + ' total connection, ' + program.concurency + ' concurent connection');
