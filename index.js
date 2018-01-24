@@ -16,7 +16,7 @@ program
   .option('-m, --message <n>', 'number of message for a client. Default to 0', parseInt)
   .option('-o, --output <output>', 'Output file')
   .option('-t, --type <type>', 'type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to io')
-  .option('-p, --transport <type>', 'type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets')
+  .option('-p, --transport <type>', 'type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io, ws). Default to websockets')
   .option('-k, --keep-alive', 'Keep alive connection')
   .option('-v, --verbose', 'Verbose Logging')
   .parse(process.argv);
