@@ -18,6 +18,8 @@
   "dependencies": {
     "socket.io-client": "~1.3.5",
     "engine.io-client": "~0.9.0",
+    "sockjs-client": "~1.1.4",
+    "stompjs": "~2.3.3",
     "commander": "~1.1.1",
     "colors": "~0.6",
     "cli-table": "~0.3.0",
